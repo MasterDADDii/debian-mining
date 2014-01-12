@@ -26,6 +26,12 @@ Debian scrypt miner
         
 配置
 ----
+1. 自动登录
+
+        insserv -r xdm
+        #添加到/etc/rc.local
+        su --login root -c '/bin/bash -l -c startx &> /dev/null' &
+        
 1. 关闭 DPMS
 1. cgminer状态报告
 
