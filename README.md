@@ -23,6 +23,13 @@ Debian scrypt miner
         
 1. APP SDK
 > 下载 http://developer.amd.com/tools-and-sdks/heterogeneous-computing/amd-accelerated-parallel-processing-app-sdk/downloads/
+
+1. 编译cgminer
+
+        wget http://ck.kolivas.org/apps/cgminer/3.1/cgminer-3.1.1.tar.bz2
+        tar jxf cgminer-3.1.1.tar.bz2
+        cd cgminer-3.1.1/ADL_SDK && wget http://mein.intern3ts.com/ADL_SDK_5.0.zip && unzip -j ADL_SDK_5.0.zip 'include/adl_*.h'
+        cd .. && ./configure --enable-scrypt && make && make install
         
 配置
 ----
