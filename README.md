@@ -51,7 +51,7 @@ Debian scrypt miner
         export GPU_MAX_ALLOC_PERCENT=100
         export GPU_USE_SYNC_OBJECTS=1
         export XAUTHORITY=/.Xauthority
-        screen -dmS miner bash -lc "sleep 10;cgminer --api-listen -c /etc/bamt/cgminer.conf"
+        screen -dmS miner bash -lc "cgminer -c /etc/bamt/cgminer.conf"
 
 1. cgminer状态报告
 
