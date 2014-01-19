@@ -33,13 +33,16 @@ Debian scrypt miner
         
 配置
 ----
-1. 自动登录
+1. 自动登录，自动配置X，关闭X电源管理
 
         insserv -r xdm
-        #添加到/etc/rc.local
-        su --login root -c '/bin/bash -l -c startx &> /dev/null' &
+        # 生成配置文件
+        /usr/bin/aticonfig --adapter=all --initial
+        # 关闭DPMS
+        /bin/sed 's/^.*\bDPMS\b.*$/\tOption\t"DPMS"\t"false"/'
+        # 自动进入桌面
+        /bin/su --login root -c '/bin/bash -l -c startx &> /dev/null' &
         
-1. 关闭 DPMS
 1. cgminer状态报告
 
         apt-get install php5-common libapache2-mod-php5 php5-cli
