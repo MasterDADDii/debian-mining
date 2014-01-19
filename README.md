@@ -39,10 +39,20 @@ Debian scrypt miner
         # 生成配置文件
         /usr/bin/aticonfig --adapter=all --initial
         # 关闭DPMS
-        /bin/sed 's/^.*\bDPMS\b.*$/\tOption\t"DPMS"\t"false"/'
+        /bin/sed -i 's/^.*\bDPMS\b.*$/\tOption\t"DPMS"\t"false"/' /etc/X11/xorg.conf
         # 自动进入桌面
         /bin/su --login root -c '/bin/bash -l -c startx &> /dev/null' &
         
+1. mine_start脚本
+
+        #!/bin/sh
+        set -e
+        export DISPLAY=:0
+        export GPU_MAX_ALLOC_PERCENT=100
+        export GPU_USE_SYNC_OBJECTS=1
+        export XAUTHORITY=/.Xauthority
+        screen -dmS miner bash -lc "sleep 10;cgminer --api-listen -c /etc/bamt/cgminer.conf"
+
 1. cgminer状态报告
 
         apt-get install php5-common libapache2-mod-php5 php5-cli
