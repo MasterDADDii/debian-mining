@@ -43,15 +43,9 @@ Debian scrypt miner
         # 自动进入桌面
         /bin/su --login root -c '/bin/bash -l -c startx &> /dev/null' &
         
-1. mine_start脚本
+1. LXDE自动启动
 
-        #!/bin/sh
-        set -e
-        export DISPLAY=:0
-        export GPU_MAX_ALLOC_PERCENT=100
-        export GPU_USE_SYNC_OBJECTS=1
-        #export XAUTHORITY=/.Xauthority
-        screen -dmS miner bash -lc "echo 'waiting 15 seconds for X server starting...';sleep 15;/opt/miners/cgminer/cgminer -c /etc/bamt/cgminer.conf;echo 'cgminer is quiting,please wait...';sleep 10;"
+        /etc/xdg/lxsession/LXDE/autostart
 
 1. cgminer状态报告
 
