@@ -50,8 +50,8 @@ Debian scrypt miner
         export DISPLAY=:0
         export GPU_MAX_ALLOC_PERCENT=100
         export GPU_USE_SYNC_OBJECTS=1
-        export XAUTHORITY=/.Xauthority
-        screen -dmS miner bash -lc "cgminer -c /etc/bamt/cgminer.conf"
+        #export XAUTHORITY=/.Xauthority
+        screen -dmS miner bash -lc "echo 'waiting 15 seconds for X server starting...';sleep 15;/opt/miners/cgminer/cgminer -c /etc/bamt/cgminer.conf;echo 'cgminer is quiting,please wait...';sleep 10;"
 
 1. cgminer状态报告
 
