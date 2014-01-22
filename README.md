@@ -42,7 +42,19 @@ Debian scrypt miner
         /bin/sed -i 's/^.*\bDPMS\b.*$/\tOption\t"DPMS"\t"false"/' /etc/X11/xorg.conf
         # 自动进入桌面
         /bin/su --login root -c '/bin/bash -l -c startx &> /dev/null' &
+        # 自动启动挖矿
+        /usr/local/bin/mine_start
         
+1. 命令行自动自动
+        
+        #!/bin/sh
+        set -e
+        export DISPLAY=:0
+        export GPU_MAX_ALLOC_PERCENT=100
+        export GPU_USE_SYNC_OBJECTS=1
+        #export XAUTHORITY=/.Xauthority
+        screen -dmS miner bash -lc "echo 'waiting 15 seconds for X server starting...';sleep 15;/usr/local/bin/cgminer -c /etc/cgminer.conf;echo 'cgminer is quiting,please wait...';sleep 10;"
+
 1. LXDE自动启动
 
         /etc/xdg/lxsession/LXDE/autostart
