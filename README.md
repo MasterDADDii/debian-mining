@@ -33,9 +33,12 @@ Debian scrypt miner
         
 配置
 ----
-1. 自动登录，自动配置X，关闭X电源管理
+1. 移除DisplayManager服务
 
         insserv -r xdm
+        
+1. 修改`/etc/rc.local`，添加自动配置X，关闭X电源管理，自动登录
+
         # 生成配置文件
         /usr/bin/aticonfig --adapter=all --initial
         # 关闭DPMS
@@ -62,3 +65,8 @@ Debian scrypt miner
 1. cgminer状态报告
 
         apt-get install php5-common libapache2-mod-php5 php5-cli
+
+常见问题
+--------
+1. dri2 connection failed!
+> cgminer参数设置 gpu-platform 0
