@@ -56,7 +56,7 @@ Debian scrypt miner
         export GPU_MAX_ALLOC_PERCENT=100
         export GPU_USE_SYNC_OBJECTS=1
         #export XAUTHORITY=/.Xauthority
-        screen -dmS miner bash -lc "echo 'waiting 15 seconds for X server starting...';sleep 15;/usr/local/bin/cgminer -c /etc/cgminer.conf;echo 'cgminer is quiting,please wait...';sleep 10;"
+        screen -dmS miner bash -lc "echo 'waiting 15 seconds for X server starting...';sleep 15;/usr/local/bin/cgminer -c /etc/cgminer.conf --api-listen;echo 'cgminer is quiting,please wait...';sleep 10;"
 
 1. LXDE自动启动
 
