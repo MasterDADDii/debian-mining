@@ -70,3 +70,6 @@ Debian scrypt miner
 --------
 1. dri2 connection failed!
 > cgminer参数设置 gpu-platform 0
+
+1. 其它问题
+> 待补充
